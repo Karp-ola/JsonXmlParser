@@ -2,7 +2,6 @@ package json;
 
 import Interfaces.Parsable;
 import com.google.gson.*;
-import model.People;
 import model.Root;
 import utils.GenerateData;
 
@@ -36,7 +35,7 @@ public class GsonParser implements Parsable {
 	}
 
 
-
+	@Override
 	public List<Integer> getListOfPeopleAges() throws IOException {
 		List<Integer> listOfAges = new ArrayList<>();
 		File file = new File(PATH_TO_JSON_TEST_FILE);
@@ -52,6 +51,7 @@ public class GsonParser implements Parsable {
 		return  listOfAges;
 	}
 
+	@Override
 	public List<String> getListOfPeopleNames() throws IOException {
 		List<String> listOfNames = new ArrayList<>();
 		File file = new File(PATH_TO_JSON_TEST_FILE);

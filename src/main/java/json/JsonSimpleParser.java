@@ -1,7 +1,6 @@
 package json;
 
 import Interfaces.Parsable;
-import com.google.gson.JsonObject;
 import model.People;
 import model.Root;
 import org.json.simple.JSONArray;
@@ -58,6 +57,7 @@ public class JsonSimpleParser implements Parsable {
 		}
 	}
 
+	@Override
 	public List<String> getListOfPeopleNames() throws IOException {
 		Root root = parseJsonToJavaObject();
 		List<String> peopleNames = new ArrayList<>();
@@ -69,6 +69,7 @@ public class JsonSimpleParser implements Parsable {
 		return peopleNames;
 	}
 
+	@Override
 	public List<Integer> getListOfPeopleAges() throws IOException {
 		Root root = parseJsonToJavaObject();
 		List<Integer> peopleAges = new ArrayList<>();

@@ -58,7 +58,7 @@ public class JsonSimpleParser implements Parsable {
 		}
 	}
 
-	public List<String> getPeopleNames() throws IOException {
+	public List<String> getListOfPeopleNames() throws IOException {
 		Root root = parseJsonToJavaObject();
 		List<String> peopleNames = new ArrayList<>();
 		List<People> people = root.getPeople();
@@ -69,7 +69,7 @@ public class JsonSimpleParser implements Parsable {
 		return peopleNames;
 	}
 
-	public List<Integer> getPeopleAges() throws IOException {
+	public List<Integer> getListOfPeopleAges() throws IOException {
 		Root root = parseJsonToJavaObject();
 		List<Integer> peopleAges = new ArrayList<>();
 		List<People> people = root.getPeople();

@@ -14,7 +14,7 @@ public class Main {
 	public static void main(String[] args) throws FileNotFoundException {
 
 		System.out.println("------------------------JsonSimpleParser-----------------------------------------");
-		JsonSimpleParser parser = new JsonSimpleParser();
+		Parsable parser = new JsonSimpleParser();
 		Root root = null;
 		try {
 			root = parser.parseJsonToJavaObject();
@@ -29,7 +29,7 @@ public class Main {
 		System.out.println("Root " + root.toString());
 
 		try {
-			List<String> peopleNames = parser.getPeopleNames();
+			List<String> peopleNames = parser.getListOfPeopleNames();
 			System.out.println("People's names are: " + peopleNames);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -37,7 +37,7 @@ public class Main {
 
 		List<Integer> peopleAges = null;
 		try {
-			peopleAges = parser.getPeopleAges();
+			peopleAges = parser.getListOfPeopleAges();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -46,7 +46,7 @@ public class Main {
 
 		System.out.println("_________________________GsonParser_____________________________________________");
 
-		GsonParser gsonParser = new GsonParser();
+		Parsable gsonParser = new GsonParser();
 		Root gsonRoot;
 		try {
 			// Read object 'Root' from json file and create Java object
@@ -58,17 +58,28 @@ public class Main {
 			e.printStackTrace();
 		}
 
-		List<String> people = gsonParser.getListOfPeopleNames();
-		System.out.println("People's names are: ");
-		people.forEach(System.out::println);
+		List<String> people = null;
+		try {
+			people = gsonParser.getListOfPeopleNames();
+			System.out.println("People's names are: ");
+			people.forEach(System.out::println);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-		List<Integer> listOfAges = gsonParser.getListOfPeopleAges();
+
+		List<Integer> listOfAges = null;
+		try {
+			listOfAges = gsonParser.getListOfPeopleAges();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		System.out.println("People's ages are: ");
 		listOfAges.forEach(System.out::println);
 
 		System.out.println("------------------------------Jackson--------------------------------------------");
 
-		JacksonParser jacksonParser = new JacksonParser();
+		Parsable jacksonParser = new JacksonParser();
 		Root jacksonRoot = null;
 		try {
 			jacksonRoot = jacksonParser.parseJsonToJavaObject();
@@ -82,7 +93,7 @@ public class Main {
 		}
 		System.out.println("Root " + jacksonRoot.toString());
 		try {
-			List<String> peopleNames = jacksonParser.getPeopleNames();
+			List<String> peopleNames = jacksonParser.getListOfPeopleNames();
 			System.out.println("People's names are: ");
 			peopleNames.forEach(System.out::println);
 		} catch (IOException e) {
@@ -90,7 +101,7 @@ public class Main {
 		}
 
 		try {
-			List<Integer> peopleAge = jacksonParser.getPeopleAges();
+			List<Integer> peopleAge = jacksonParser.getListOfPeopleAges();
 			System.out.println("People's ages are: ");
 			peopleAge.forEach(System.out::println);
 		} catch (IOException e) {

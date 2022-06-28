@@ -37,7 +37,7 @@ public class GsonParser implements Parsable {
 
 
 
-	public List<Integer> getListOfPeopleAges() throws FileNotFoundException {
+	public List<Integer> getListOfPeopleAges() throws IOException {
 		List<Integer> listOfAges = new ArrayList<>();
 		File file = new File(PATH_TO_JSON_TEST_FILE);
 		JsonElement fileElement = JsonParser.parseReader(new FileReader(file));
@@ -52,7 +52,7 @@ public class GsonParser implements Parsable {
 		return  listOfAges;
 	}
 
-	public List<String> getListOfPeopleNames() throws FileNotFoundException {
+	public List<String> getListOfPeopleNames() throws IOException {
 		List<String> listOfNames = new ArrayList<>();
 		File file = new File(PATH_TO_JSON_TEST_FILE);
 		JsonElement fileElement = JsonParser.parseReader(new FileReader(file));

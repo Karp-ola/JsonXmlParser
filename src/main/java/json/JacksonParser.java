@@ -30,7 +30,7 @@ public class JacksonParser implements Parsable {
 		objectMapper.writeValue(new File(PATH_TO_WRITTEN_PEOPLE_JACKSON_FILE), root);
 	}
 
-	public List<String> getPeopleNames() throws IOException {
+	public List<String> getListOfPeopleNames() throws IOException {
 		List<String> peopleNames = new ArrayList<>();
 		JsonNode rootNode = objectMapper.readTree(new File(PATH_TO_JSON_TEST_FILE));
 		JsonNode peopleNode = rootNode.path(TAG_PEOPLE);
@@ -42,7 +42,7 @@ public class JacksonParser implements Parsable {
 
 	}
 
-	public List<Integer> getPeopleAges() throws IOException {
+	public List<Integer> getListOfPeopleAges() throws IOException {
 		List<Integer> peopleAges = new ArrayList<>();
 		JsonNode rootNode = objectMapper.readTree(new File(PATH_TO_JSON_TEST_FILE));
 		JsonNode peopleNode = rootNode.path(TAG_PEOPLE);
